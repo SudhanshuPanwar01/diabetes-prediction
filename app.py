@@ -20,6 +20,30 @@ def predict_diabetes(pregnancies, glucose, insulin, bmi, age):
 # ---------------------------------------------------
 
 # --- CODE BLOCK: GRADIO INTERFACE SETUP ---
+css = """
+body {
+    background: #f4f8fb;
+}
+
+.gradio-container {
+    background: #f4f8fb;
+}
+
+h3 {
+    color: #0d47a1;
+    text-align: center;
+}
+
+.info-box {
+    background: #e3f2fd;
+    border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 15px;
+    color: #000;
+    font-size: 16px;
+}
+"""
+
 interface = gr.Interface(
 
     fn=predict_diabetes,
@@ -33,13 +57,19 @@ interface = gr.Interface(
     outputs=gr.Text(label="Assessment Result"),
     title="Diabetes Prediction System",
     description="""
-    Enter the medical metrics to predict diabetes risk using a Decision Tree Machine Learning model.
+    <h3>Diabetes Prediction System</h3>
 
-    Developed by: Sudhanshu Panwar
-    Contact: +91-9416407198
-    Gmail: sudhanshupanwar0111@gmail.com 
-    College: Panipat Institute of Engineering and Technology (PIET)
-    """
+<p>Enter the medical metrics below to predict diabetes risk using a Decision Tree Machine Learning model.</p>
+
+<hr>
+
+<p>
+<b>👨‍💻 Developed By:</b> Sudhanshu Panwar<br>
+<b>📞 Contact:</b> +91-9416407198<br>
+<b>📧 Gmail:</b> sudhanshupanwar0111@gmail.com<br>
+<b>🏫 College:</b> Panipat Institute of Engineering and Technology (PIET)
+</p>
+"""
 )
 # ------------------------------------------
 

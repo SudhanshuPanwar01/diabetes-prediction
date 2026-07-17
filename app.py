@@ -20,31 +20,10 @@ def predict_diabetes(pregnancies, glucose, insulin, bmi, age):
 # ---------------------------------------------------
 
 # --- CODE BLOCK: GRADIO INTERFACE SETUP ---
-css = """
-body {
-    background: #f4f8fb;
-}
-
-.gradio-container {
-    background: #f4f8fb;
-}
-
-h3 {
-    color: #0d47a1;
-    text-align: center;
-}
-
-.info-box {
-    background: #e3f2fd;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    padding: 15px;
-    color: #000;
-    font-size: 16px;
-}
-"""
 
 interface = gr.Interface(
+     theme=gr.themes.Glass(),
+    css=css
 
     fn=predict_diabetes,
     inputs=[
@@ -70,6 +49,83 @@ interface = gr.Interface(
 <b>🏫 College:</b> Panipat Institute of Engineering and Technology (PIET)
 </p>
 """
+    css = """
+/* Animated Gradient Background */
+body{
+    background: linear-gradient(-45deg,#0f172a,#1e3a8a,#0f766e,#2563eb);
+    background-size:400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Glass Card */
+.gradio-container{
+    max-width:900px !important;
+    margin:30px auto !important;
+    border-radius:20px;
+    background:rgba(255,255,255,.12) !important;
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+    animation:fadeIn 1.2s ease;
+}
+
+/* Fade Animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Title Animation */
+h1{
+    color:white !important;
+    text-align:center;
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 5px #60a5fa;
+    }
+    to{
+        text-shadow:0 0 20px #38bdf8;
+    }
+}
+
+/* Inputs */
+input{
+    border-radius:12px !important;
+    transition:.3s;
+}
+
+input:focus{
+    transform:scale(1.03);
+    border:2px solid #3b82f6 !important;
+}
+
+/* Button */
+button{
+    background:linear-gradient(90deg,#2563eb,#06b6d4)!important;
+    color:white!important;
+    border:none!important;
+    border-radius:12px!important;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #38bdf8;
+}
 )
 # ------------------------------------------
 

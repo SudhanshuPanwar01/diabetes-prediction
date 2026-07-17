@@ -3,7 +3,6 @@
 import os
 import gradio as gr
 import joblib
-
 # Load the trained Decision Tree model at startup
 deployed_dt = joblib.load('diabetes_prediction_model.pkl')
 
@@ -22,6 +21,7 @@ def predict_diabetes(pregnancies, glucose, insulin, bmi, age):
 
 # --- CODE BLOCK: GRADIO INTERFACE SETUP ---
 interface = gr.Interface(
+
     fn=predict_diabetes,
     inputs=[
         gr.Number(label="Pregnancies (Number of times pregnant)"),
@@ -32,7 +32,14 @@ interface = gr.Interface(
     ],
     outputs=gr.Text(label="Assessment Result"),
     title="Diabetes Prediction System",
-    description="Enter the medical metrics to predict diabetes risk using a Decision Tree Machine Learning model."
+    description="""
+    Enter the medical metrics to predict diabetes risk using a Decision Tree Machine Learning model.
+
+    Developed by: Sudhanshu Panwar
+    Contact: +91-9416407198
+    Gmail: sudhanshupanwar0111@gmail.com 
+    College: Panipat Institute of Engineering and Technology (PIET)
+    """
 )
 # ------------------------------------------
 

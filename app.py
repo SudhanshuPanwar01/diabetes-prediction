@@ -22,8 +22,7 @@ def predict_diabetes(pregnancies, glucose, insulin, bmi, age):
 # --- CODE BLOCK: GRADIO INTERFACE SETUP ---
 
 interface = gr.Interface(
-     theme=gr.themes.Glass(),
-    css=css
+     
 
     fn=predict_diabetes,
     inputs=[
